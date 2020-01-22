@@ -3,7 +3,7 @@ const Pessoa = require('../models/Pessoa');
 module.exports = {
     async index(request, response){
         const pessoas = await Pessoa.findAll();
-        return response.json(pessoas);
+        return response.json({pessoas});
     },
     async store(request, response){
         const { codigosetor, nome, email, password, atividade, urlfoto } = request.body;
@@ -14,9 +14,7 @@ module.exports = {
             password,
             atividade,urlfoto
         });
-
-        console.log(pessoa);
-        return response.json(pessoa);
+        return response.json({pessoa});
     },
     async delete(request, response){
         const { pessoa_id } = request.params;
