@@ -25,7 +25,7 @@ module.exports = {
         protocolo,
         pessoa_id,
       });
-      return response.json({movimentacao});
+      return response.json(movimentacao);
     },
     async index(request, response){
       const movimentacao = await Movimentacao.findAll();
@@ -34,7 +34,7 @@ module.exports = {
         return response.status(400).json({ Atnção: 'Nenhuma movimentacao cadastrada!'});
       }
 
-      return response.json({movimentacao});
+      return response.json(movimentacao);
     },
     async update(request, response){
       
@@ -84,15 +84,3 @@ module.exports = {
       return response.status(200).json({ Atenção: 'Movimentacao excluida com sucesso!' });
     }
 }
-
-/*pessoa_id: DataTypes.INTEGER,
-            tipomovimentacao_id:DataTypes.INTEGER,
-            tipopagamento_id: DataTypes.INTEGER,
-            transacao: DataTypes.STRING,
-            data: DataTypes.DATE(6),
-            datacompra: DataTypes.DATE(6),
-            datavenda: DataTypes.DATE(6),
-            datacancelamento: DataTypes.DATE(6),
-            valortotal: DataTypes.DECIMAL(10,2),
-            valorcancelado: DataTypes.DECIMAL(10,2),
-            protocolo: DataTypes.STRING()*/

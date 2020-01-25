@@ -5,12 +5,12 @@ module.exports = {
         const { descricao } = require.body;
         const tipomovimento = await Tipomovimento.create({descricao});
 
-        return response.json({tipomovimento});
+        return response.json(tipomovimento);
     },
     async index(require, response){
         const tipomovimento = await Tipomovimento.findAll();
 
-        return response.json({tipomovimento});
+        return response.json(tipomovimento);
     },
     async update(require, response){
         const { tipomovimento_id } = require.params;

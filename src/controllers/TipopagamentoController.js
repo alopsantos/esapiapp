@@ -4,11 +4,11 @@ module.exports = {
     async store(require, response){
         const { descricao } = require.body;
         const tipopagamento = await Tipopagamento.create({descricao});
-        return response.json({tipopagamento});
+        return response.json(tipopagamento);
     },
     async index(require, response){
         const tipopagamento = await Tipopagamento.findAll();
-        return response.json({tipopagamento});
+        return response.json(tipopagamento);
     },
     async update(require, response){
         const { tipopagamento_id } = require.params;
