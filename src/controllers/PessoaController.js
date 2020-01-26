@@ -18,7 +18,7 @@ module.exports = {
     },
     async update(request, response){
         const { pessoa_id } = request.params;
-        const pessoa = await Pessoa.findByPK(pessoa_id);
+        const pessoa = await Pessoa.findByPk(pessoa_id);
 
         if(!pessoa){
             return response.status(400).json({ Atenção: 'Pessoa não cadastrada'});
@@ -37,8 +37,9 @@ module.exports = {
         })
     },
     async delete(request, response){
-        const { pessoa_id } = request.params;
-        const pessoa = await response.findByPK(pessoa_id);
+        console.log(request.params);
+        const { id } = request.params;
+        const pessoa = await Pessoa.findByPk(id);
         
         if(!pessoa){
             return response.status(400).json({ Ataenção: 'Pessoa não cadastrada'});

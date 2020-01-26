@@ -74,7 +74,6 @@ module.exports = {
       });
     },
     async delete(request, response){
-      console.log("tesque update");
       const { movimentacao_id } = request.params;
       const movimentacao = await Movimentacao.findByPk(movimentacao_id);
       if(!movimentacao){

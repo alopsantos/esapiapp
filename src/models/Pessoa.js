@@ -14,5 +14,8 @@ class Pessoa extends Model{
             tableName: 'pessoas'        
         })
     }
+    static associate(models){
+        this.hasMany(models.Movimentacao, { foreignKey: 'pessoa_id', as: 'movimentacao'});
+    }
 }
 module.exports = Pessoa;

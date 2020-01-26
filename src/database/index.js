@@ -6,6 +6,7 @@ const Movimentacao = require('../models/Movimentacao');
 const Tipopagamento = require('../models/Tipopagamento');
 const Tipomovimento = require('../models/Tipomovimento');
 
+
 const connection = new Sequelize(dbConfig);
 
 Pessoa.init(connection);
@@ -14,5 +15,6 @@ Tipopagamento.init(connection);
 Tipomovimento.init(connection);
 
 Movimentacao.associate(connection.models);
+Pessoa.associate(connection.models);
 
 module.exports = connection;
