@@ -4,26 +4,27 @@ const Pessoa = require('../models/Pessoa');
 module.exports = {
     async store(request, response){
       const { pessoa_id } = request.params;
-      const { tipomovimentacao_id, tipopagamento_id, transacao, data, datacompra, datavenda, datacancelamento, valortotal, valorcancelado, protocolo } = request.body;
+      const { tipomovimentacao_id, tipopagamento_id, transacao, datacompra, datavenda, datacancelamento, valortotal, valorcancelado, protocolo } = request.body;
       
       const pessoa = await Pessoa.findByPk(pessoa_id);
-
+      
       if(!pessoa) {
         return response.status(400).json({ error: 'Pessoa nao encontrada !'});
       }
-
+      
       const movimentacao = await Movimentacao.create({
         tipomovimentacao_id,
         tipopagamento_id,
         transacao,
-        data,
+        data : new Date(),
         datacompra,
         datavenda,
         datacancelamento,
         valortotal,
         valorcancelado,
         protocolo,
-        pessoa_id,
+        pessoanome : pessoa.nome,
+        pessoa_id ,
       });
       return response.json(movimentacao);
     },
@@ -56,6 +57,7 @@ module.exports = {
         valortotal,
         valorcancelado,
         protocolo,
+        pessoanome,
         pessoa_id,
       } = await movimentacao.update(request.body);
       

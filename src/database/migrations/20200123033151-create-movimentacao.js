@@ -58,6 +58,10 @@ module.exports = {
           type: Sequelize.STRING(),
           allowNull: true,
         },
+        pessoanome:{
+          type: Sequelize.STRING(),
+          allowNull: true,
+        },
         created_at:{
           type: Sequelize.DATE,
           allowNull: false,

@@ -13,7 +13,8 @@ class Movimentacao extends Model{
             datacancelamento: DataTypes.DATE(6),
             valortotal: DataTypes.DECIMAL(10,2),
             valorcancelado: DataTypes.DECIMAL(10,2),
-            protocolo: DataTypes.STRING()     
+            protocolo: DataTypes.STRING(),
+            pessoanome: DataTypes.STRING,    
         }, {
             sequelize,
             tableName: 'movimentacoes'
